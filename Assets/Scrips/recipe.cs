@@ -7,28 +7,45 @@ public class recipe : MonoBehaviour
 
     public string recipeName;
     public GameObject[] ingredients;
-    public float[] cookingTimes = {0f, 5f,10f,15f,20f};
+    public float cookingInterval = 5f;
     public string[] cookingLevelName = {"super early","early","on time","late","too late!"};
     private int cookCount = 0;
     private float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (cookCount < cookingLevelName.Length)
+        {
+            InvokeRepeating("timeUpdate", 0f, cookingInterval);
+        }
+    }
+
+    void timeUpdate()
+    {
+        if (cookCount < cookingLevelName.Length)
+        {
+            Debug.Log(cookingLevelName[cookCount]);
+            cookCount += 1;
+        }
+        else
+        {
+            CancelInvoke();
+        }
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        //will 
-        if (cookCount < cookingTimes.Length){
-            if (timer < cookingTimes[cookCount]){
-                    timer += Time.deltaTime;
-            } else {
-                Debug.Log(cookingLevelName[cookCount]);
-                cookCount += 1;
-                timer += Time.deltaTime;
-            }
-        }
-    }
+    //void Update()
+    //{
+        
+    //    if (cookCount < cookingTimes.Length){
+    //        if (timer < cookingTimes[cookCount]){
+    //                timer += Time.deltaTime;
+    //        } else {
+    //            Debug.Log(cookingLevelName[cookCount]);
+    //            cookCount += 1;
+    //            timer += Time.deltaTime;
+    //        }
+    //    }
+    //}
 }
