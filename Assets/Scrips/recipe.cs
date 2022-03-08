@@ -7,8 +7,8 @@ public class recipe : MonoBehaviour
 
     public string recipeName;
     public GameObject[] ingredients;
-    public float[] doneTimes = {0f, 5f,10f,15f,20f};
-    public string[] doneLevelName = {"raw","undercooked","done","burnt","blackened"};
+    public float[] cookingTimes = {0f, 5f,10f,15f,20f};
+    public string[] cookingLevelName = {"super early","early","on time","late","too late!"};
     private int cookCount = 0;
     private float timer = 0f;
     // Start is called before the first frame update
@@ -21,12 +21,11 @@ public class recipe : MonoBehaviour
     void Update()
     {
         //will 
-        if (cookCount < doneTimes.Length){
-            if (timer < doneTimes[cookCount]){
+        if (cookCount < cookingTimes.Length){
+            if (timer < cookingTimes[cookCount]){
                     timer += Time.deltaTime;
             } else {
-                Debug.Log(doneLevelName[cookCount]);
-                Debug.Log(cookCount);
+                Debug.Log(cookingLevelName[cookCount]);
                 cookCount += 1;
                 timer += Time.deltaTime;
             }
