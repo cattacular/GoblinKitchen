@@ -9,6 +9,8 @@ public class recipe : MonoBehaviour
     public GameObject[] ingredients;
     public float cookingInterval = 5f;
     public string[] cookingLevelName = {"super early","early","on time","late","too late!"};
+    public static bool isFinished;
+    public Material[] cookingLevelMat;
     private int cookCount = 0;
     private float timer = 0f;
     // Start is called before the first frame update
@@ -24,8 +26,15 @@ public class recipe : MonoBehaviour
     {
         if (cookCount < cookingLevelName.Length)
         {
+            GetComponent<MeshRenderer>().material = cookingLevelMat[cookCount];
             Debug.Log(cookingLevelName[cookCount]);
             cookCount += 1;
+
+            if(cookCount == 4)
+            {
+                isFinished = true;
+                GetComponent<recipe>().enabled = false;
+            }
         }
         else
         {
