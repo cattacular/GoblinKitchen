@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - oven
-  - heater
+  - Used
+  - Mushroom
+  - Onion
+  - Tomato
+  - Carrot
+  - Potato
   layers:
   - Default
   - TransparentFX
@@ -13,10 +17,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Climbable
   - 
-  - 
-  - 
-  - 
+  - Grab Ignore Ray
   - 
   - 
   - 
