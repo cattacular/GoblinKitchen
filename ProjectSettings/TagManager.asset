@@ -12,6 +12,13 @@ TagManager:
   - Potato
   - Salt
   - Smashed Tomato
+  - Bowl
+  - Cast Iron
+  - Cup
+  - Plate
+  - Carrot/Whole
+  - Carrot/Half
+  - Carrot/Quarter
   layers:
   - Default
   - TransparentFX
