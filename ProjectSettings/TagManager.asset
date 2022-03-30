@@ -10,6 +10,7 @@ TagManager:
   - Tomato
   - Carrot
   - Potato
+  - Salt
   layers:
   - Default
   - TransparentFX
