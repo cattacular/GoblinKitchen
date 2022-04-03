@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2375654499342686568}
   - component: {fileID: 9220340140924315844}
   - component: {fileID: 6386134636999537592}
+  - component: {fileID: -7707405044504095884}
   m_Layer: 9
   m_Name: Cut2A
   m_TagString: Carrot Half
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3812700562503282709}
   m_LocalRotation: {x: -0, y: -0, z: 0.70544714, w: 0.7087625}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.344, y: 0.002, z: 0}
   m_LocalScale: {x: 6.006808, y: 7.6550746, z: 7.6550746}
   m_Children: []
   m_Father: {fileID: 0}
@@ -244,3 +245,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHalf: {fileID: 6446799238581613791, guid: 29779cd3764ae8849a309d52af45d873, type: 3}
   rightHalf: {fileID: 6152545035956127759, guid: 7ee80530566bdc240820f0c0f8fcd4a8, type: 3}
+--- !u!114 &-7707405044504095884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812700562503282709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed388fda1349674c89875b57dee4b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Carrot
+  amount: 0.5

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7119043568088539565}
   - component: {fileID: 7119043568088539566}
   - component: {fileID: 1191695705779400594}
+  - component: {fileID: 6767403092042935014}
+  - component: {fileID: 4572084777868805951}
   m_Layer: 9
   m_Name: Pepper
   m_TagString: Salt
@@ -126,3 +128,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6767403092042935014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119043568088539567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ec630608183ba42821cbd5cdb41ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfDestructTime: 5
+--- !u!114 &4572084777868805951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119043568088539567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed388fda1349674c89875b57dee4b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Pepper
+  amount: 0.05
