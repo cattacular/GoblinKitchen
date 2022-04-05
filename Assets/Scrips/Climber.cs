@@ -36,6 +36,8 @@ public class Climber : MonoBehaviour
     {
         InputDevices.GetDeviceAtXRNode(climbingHand.controllerNode).TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity);
 
-        character.Move(new Vector3(0,-velocity.y * Time.fixedDeltaTime, 0));
+        //character.Move(new Vector3(0,-velocity.y * Time.fixedDeltaTime, 0)); This is just for climbing in the y direction
+        //character.Move(transform.rotation * -velocity * Time.fixedDeltaTime); this is how the tutorial said to put in climbing
+        character.Move(transform.rotation * new Vector3(velocity.x, -velocity.y, velocity.z) * Time.fixedDeltaTime); // Implemented it this way because having the diections reversed for left to right and forward and backwards is wierd
     }
 }
