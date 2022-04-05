@@ -15,7 +15,7 @@ public class ContinuousMovement : MonoBehaviour
     public float additionalHeight = 0.2f;
     private XROrigin rig;
     private float fallingSpeed;
-    private Vector2 inputAxis;
+    public Vector2 inputAxis;
     private CharacterController character;
     // Start is called before the first frame update
     void Start()
