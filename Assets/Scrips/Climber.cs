@@ -11,16 +11,20 @@ public class Climber : MonoBehaviour
     public static XRController climbingHand;
     private ContinuousMovement continuousMovement;
     private bool Accelerator;
-
     private float tempVelocityx;
     private float tempVelocityy;
     private float tempVelocityz;
+    private float inversetempVelocityx;
+    private float inversetempVelocityy;
+    private float inversetempVelocityz;
+
     private float accelerationFactor;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        accelerationFactor = .03f;
         character = GetComponent<CharacterController>();
         continuousMovement = GetComponent<ContinuousMovement>();
         Accelerator = false;
@@ -37,7 +41,7 @@ public class Climber : MonoBehaviour
         }
         else if (Accelerator)
         {
-            if (Math.Abs(tempVelocityx) > 0.05f || Math.Abs(tempVelocityy) > 0.05f || Math.Abs(tempVelocityz) > 0.05f ){
+            if ((inversetempVelocityx > 0 && (tempVelocityx < 0)) || (inversetempVelocityx < 0 && (tempVelocityx > 0)) || (inversetempVelocityy > 0 && (tempVelocityy < inversetempVelocityy)) || (inversetempVelocityy < 0 && (tempVelocityy > inversetempVelocityy)) || (inversetempVelocityz > 0 && (tempVelocityz < 0)) || (inversetempVelocityz < 0 && (tempVelocityz > 0)) ){
                 Accelerate();
             }else{
                 Accelerator = false;
@@ -54,6 +58,10 @@ public class Climber : MonoBehaviour
         tempVelocityy = -velocity.y;
         tempVelocityz = velocity.z;
 
+        inversetempVelocityx = -velocity.x;
+        inversetempVelocityy = velocity.y;
+        inversetempVelocityz = -velocity.z;
+
         //character.Move(new Vector3(0,-velocity.y * Time.fixedDeltaTime, 0)); This is just for climbing in the y direction
         //character.Move(transform.rotation * -velocity * Time.fixedDeltaTime); this is how the tutorial said to put in climbing
         character.Move(transform.rotation * new Vector3(tempVelocityx, tempVelocityy, tempVelocityz) * .01f); // Implemented it this way because having the diections reversed for left to right and forward and backwards is wierd
@@ -62,9 +70,15 @@ public class Climber : MonoBehaviour
 
     void Accelerate()
     {
-        character.Move(transform.rotation * new Vector3(tempVelocityx, tempVelocityy, tempVelocityz) * .01f);
-        tempVelocityx = (tempVelocityx > 0) ?  tempVelocityx - .05f : tempVelocityx + .05f;
-        tempVelocityy = (tempVelocityy > 0) ? tempVelocityy - .05f : tempVelocityy + .05f;
-        tempVelocityz = (tempVelocityz > 0) ? tempVelocityz - .05f : tempVelocityz + .05f;
+        if (tempVelocityx * inversetempVelocityx >= 0){
+            tempVelocityx = 0;
+        }
+        if (tempVelocityz * inversetempVelocityz >= 0){
+            tempVelocityz = 0;
+        }
+        character.Move(transform.rotation * new Vector3(tempVelocityx, tempVelocityy * 2f, tempVelocityz) * .01f);
+        tempVelocityx = (inversetempVelocityx < 0) ?  tempVelocityx - accelerationFactor : tempVelocityx + accelerationFactor;
+        tempVelocityy = (inversetempVelocityy < 0) ? tempVelocityy - accelerationFactor : tempVelocityy + accelerationFactor;
+        tempVelocityz = (inversetempVelocityz < 0) ? tempVelocityz - accelerationFactor : tempVelocityz + accelerationFactor;
     }
 }
