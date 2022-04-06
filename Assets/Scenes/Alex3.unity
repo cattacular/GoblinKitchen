@@ -9226,7 +9226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6873966944374080268, guid: 4d7117c4685eba448baf2217ee790e72, type: 3}
       propertyPath: m_ActivateUsage
-      value: 14
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6873966944374080305, guid: 4d7117c4685eba448baf2217ee790e72, type: 3}
       propertyPath: m_RaycastMask.m_Bits
@@ -9335,6 +9335,10 @@ PrefabInstance:
     - target: {fileID: 6873966945176761950, guid: 4d7117c4685eba448baf2217ee790e72, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 179
+      objectReference: {fileID: 0}
+    - target: {fileID: 6873966945221257739, guid: 4d7117c4685eba448baf2217ee790e72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6873966945221257742, guid: 4d7117c4685eba448baf2217ee790e72, type: 3}
       propertyPath: m_ActivateUsage
