@@ -128,6 +128,21 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-7617914599021398017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
+  m_Name: iPhone
+  m_EditorClassIdentifier: 
+  features: []
+  m_renderMode: 1
+  m_depthSubmissionMode: 0
 --- !u!114 &-7485555778735522144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,13 +393,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0ebc320a151d3408ea1e9fce54d40e, type: 3}
   m_Name: Open XR Package Settings
   m_EditorClassIdentifier: 
-  Keys: 010000000e000000070000000d0000001c000000
+  Keys: 010000000e000000070000000d0000001c00000004000000
   Values:
   - {fileID: 3844538212332060007}
   - {fileID: -8626677944896321993}
   - {fileID: -8224710205963737550}
   - {fileID: -2507924504667469778}
   - {fileID: 5114087212031689205}
+  - {fileID: -7617914599021398017}
 --- !u!114 &423402931474148274
 MonoBehaviour:
   m_ObjectHideFlags: 0
