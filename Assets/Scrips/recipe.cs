@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Recipe : Object
+[System.Serializable]
+public class Recipe : MonoBehaviour
 {
     public Ingredient[] ingredients;
 
-    public Recipe(Ingredient[] ingredientsNeeded)
+    public float cookIntervalTime;
+
+    public Material[] cookingLevelMats;
+
+    public Recipe(Ingredient[] ingredientsNeeded, float cookTime, Material[] cookingLevelMaterials)
     {
         ingredients = ingredientsNeeded;
+        cookIntervalTime = cookTime;
+        cookingLevelMats = cookingLevelMaterials;
     }
 }

@@ -11,11 +11,12 @@ public class PotChecker : MonoBehaviour
     private Recipe correctRecipe;
     private int ingredientCount = 0;
     public GameObject RecipeBook;
+    private CookFood cookFood;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        cookFood = this.GetComponent<CookFood>();
     }
 
     // Update is called once per frame
@@ -87,6 +88,10 @@ public class PotChecker : MonoBehaviour
 
     private void Cook(Recipe recipe){
         Debug.Log(recipe.name);
+        cookFood.recipeName = recipe.name;
+        cookFood.cookingLevelMats = recipe.cookingLevelMats;
+        cookFood.cookingInterval = recipe.cookIntervalTime;
+        cookFood.enabled = true;
     }
 
     
