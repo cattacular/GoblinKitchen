@@ -31,13 +31,15 @@ public class CookFood : MonoBehaviour
 
             if(cookCount == 4)
             {
-                
+                GetComponent<PotChecker>().enabled = true;
+                //GetComponent<CookFood>().enabled = false;
                 //GetComponent<recipe>().enabled = false;
             }
         }
         else
         {
             CancelInvoke();
+            GetComponent<CookFood>().enabled = false;
         }
 
     }
