@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PotChecker : MonoBehaviour
 {
     private Ingredient[] recipe;
+    private int[] test;
 
     private Recipe correctRecipe;
     private int ingredientCount = 0;
@@ -17,6 +18,7 @@ public class PotChecker : MonoBehaviour
     void Start()
     {
         cookFood = this.GetComponent<CookFood>();
+        recipe = new Ingredient[10];
     }
 
     // Update is called once per frame
@@ -29,8 +31,9 @@ public class PotChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Ingredient>()){
-            BuildRecipe(other.gameObject.GetComponent<Ingredient>());
+        if(other.gameObject.GetComponentInParent<Ingredient>()){
+            BuildRecipe(other.gameObject.GetComponentInParent<Ingredient>());
+            other.gameObject.GetComponentInParent<Ingredient>().enabled = false;
             if(CheckRecipe()){
                 Cook(correctRecipe);
             }
@@ -43,8 +46,11 @@ public class PotChecker : MonoBehaviour
 
     private void BuildRecipe(Ingredient ingredient)
     {
+        //Debug.Log(ingredient);
         if(ingredientCount == 0){
+            Debug.Log(ingredient.amount);
             recipe[ingredientCount] = ingredient;
+            
             ingredientCount++;
         }
         else{
@@ -92,6 +98,7 @@ public class PotChecker : MonoBehaviour
         cookFood.cookingLevelMats = recipe.cookingLevelMats;
         cookFood.cookingInterval = recipe.cookIntervalTime;
         cookFood.enabled = true;
+        GetComponent<PotChecker>().enabled = false;
     }
 
     
