@@ -58,6 +58,10 @@ public class PotChecker : MonoBehaviour
             }
 
         }
+        else if(other.gameObject.GetComponent<Cuttable>() && !(other.gameObject.GetComponent<Ingredient>()))
+        {
+            other.gameObject.tag = "Used";
+        }
     
     }
 

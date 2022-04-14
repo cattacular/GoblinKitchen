@@ -387,6 +387,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8097641149704457051, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097641149704457051, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097641149704457051, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097641149704457051, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097641149704457051, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097641149704457051, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097641149704457051, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1621f23b3666ef4786fc7fbb29a99b9, type: 3}
 --- !u!4 &2680101064150009859 stripped

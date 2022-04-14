@@ -47,3 +47,11 @@ MonoBehaviour:
   - {fileID: 1246264395361854434, guid: 795369d6d2a013a4b86595eb6a33d7fa, type: 3}
   - {fileID: 1246264395361854434, guid: b036798239857374a82f2ada718a5c64, type: 3}
   - {fileID: 1246264395361854434, guid: c0bd58326736840409d61c179ebb8f60, type: 3}
+  - {fileID: 1246264395361854434, guid: 85602a391db901c42a7cc2ec1588d016, type: 3}
+  cookIntervalTime: 5
+  cookingLevelMats:
+  - {fileID: 2100000, guid: bd9df4761d9dfa044afd06288515078a, type: 2}
+  - {fileID: 2100000, guid: 16a1d03d0d500404084846b15ff1cb42, type: 2}
+  - {fileID: 2100000, guid: db3e91ec974be394c82897d389b43d64, type: 2}
+  - {fileID: 2100000, guid: c6b16a3c89f18ef48baa2d16e402033e, type: 2}
+  - {fileID: 2100000, guid: 3ea0492720f95b0458b42fbff9fc8789, type: 2}

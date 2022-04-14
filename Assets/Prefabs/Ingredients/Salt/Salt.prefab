@@ -140,4 +140,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Salt
-  amount: 0.05
+  amount: 0.01

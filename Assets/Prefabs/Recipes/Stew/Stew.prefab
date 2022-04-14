@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 1246264395361854434, guid: ef466680306796f418ee8e2a86d4e5e9, type: 3}
   cookIntervalTime: 10
   cookingLevelMats:
-  - {fileID: 2100000, guid: 3da9b100858ee774bb0f7706e4ad3945, type: 2}
+  - {fileID: 2100000, guid: bd9df4761d9dfa044afd06288515078a, type: 2}
   - {fileID: 2100000, guid: 3da9b100858ee774bb0f7706e4ad3945, type: 2}
   - {fileID: 2100000, guid: 8fff6942b441e1e4f9452642dfb71936, type: 2}
   - {fileID: 2100000, guid: 7c30453b246ace3418777517cd05fb64, type: 2}
