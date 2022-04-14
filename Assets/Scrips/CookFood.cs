@@ -5,11 +5,15 @@ using UnityEngine;
 public class CookFood : MonoBehaviour
 {
 
+    public GameObject potContents;
+
     public string recipeName;
     public float cookingInterval = 5f;
     public string[] cookingLevelName = {"super early","early","on time","late","too late!"};
-    public static bool isFinished;
+    public bool isFinished;
     public Material[] cookingLevelMats;
+    public GameObject[] foodLevels;
+    public Material water;
     private int cookCount = 0;
     private float timer = 0f;
     // Start is called before the first frame update
@@ -25,12 +29,13 @@ public class CookFood : MonoBehaviour
     {
         if (cookCount < cookingLevelName.Length)
         {
-            GetComponent<MeshRenderer>().material = cookingLevelMats[cookCount];
+            potContents.GetComponent<MeshRenderer>().material = cookingLevelMats[cookCount];
             Debug.Log(cookingLevelName[cookCount]);
             cookCount += 1;
 
             if(cookCount == 4)
             {
+                isFinished = true;
                 GetComponent<PotChecker>().enabled = true;
                 //GetComponent<CookFood>().enabled = false;
                 //GetComponent<recipe>().enabled = false;

@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FoodWindow : MonoBehaviour
 {
     public  GameObject[] foodSpots;
     public int timeBeforeFoodLeaves = 30;
 
-    private List<bool> spotTaken;
+    public GameObject OrderArea;
+
+    private List<bool> spotTaken = new List<bool>();
 
 
 
@@ -20,11 +23,14 @@ public class FoodWindow : MonoBehaviour
    
 
 
-    void onTiggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Food>()){
-           int emptySpot = spotTaken.BinarySearch(false);
-           if(emptySpot >= 0){
+        Debug.Log("hit");
+        if(other.gameObject.GetComponent<Food>() && other.CompareTag("Food")){
+            other.tag = "Untagged";
+            int emptySpot = spotTaken.IndexOf(false);
+            if(emptySpot >= 0){
+               Debug.Log(spotTaken[3]);
                spotTaken[emptySpot] = true;
                SendToFoodSpot(other.gameObject, emptySpot);
                //CalculateMoney()
@@ -33,11 +39,34 @@ public class FoodWindow : MonoBehaviour
 
     }
 
-    void SendToFoodSpot(GameObject food, int foodSpot){
+    void SendToFoodSpot(GameObject food, int foodSpot)
+    {
+        Destroy(food.GetComponent<XRGrabInteractable>());
         food.transform.position = foodSpots[foodSpot].transform.position;
         food.transform.rotation = foodSpots[foodSpot].transform.rotation;
+        StartCoroutine(MakeKinematic(food));
+        //if(checkForOrder())
+        //{
+            //CalculateMoney()
+        //}
+        food.AddComponent<DestroyAfterTime>().selfDestructTime = timeBeforeFoodLeaves;
+        StartCoroutine(FreeUpSpace(foodSpot));
+    }
+
+    IEnumerator MakeKinematic(GameObject food)
+    {
+        yield return new WaitForSeconds(4f);
         food.GetComponent<Rigidbody>().isKinematic = true;
-        food.gameObject.layer = 0;
-        food.GetComponent<Food>().onWindow(timeBeforeFoodLeaves);
+    }
+
+    IEnumerator FreeUpSpace(int foodSpot)
+    {
+        yield return new WaitForSeconds(timeBeforeFoodLeaves);
+        spotTaken[foodSpot] = false;
+    }
+
+    private bool checkForOrder()
+    {
+        return false;
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9067083747237869884}
   - component: {fileID: 2047019538079094600}
   - component: {fileID: 2008741898487392154}
+  - component: {fileID: 2899687999780044475}
   m_Layer: 9
   m_Name: Cut1B
   m_TagString: Used
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6607540005598302108}
   m_LocalRotation: {x: -0, y: -0, z: 0.70544714, w: 0.7087625}
-  m_LocalPosition: {x: 0.082, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 6.006808, y: 7.6550746, z: 7.6550746}
   m_Children: []
   m_Father: {fileID: 0}
@@ -216,3 +217,17 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!64 &2899687999780044475
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607540005598302108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4794296224426880950, guid: 4f03e61c39ef4d646a400f2dfb0ea61c, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 824257695670818498}
   - component: {fileID: 6804259747740321448}
   m_Layer: 0
-  m_Name: TomatoSoupRecipe
+  m_Name: Tomato Soup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19,6 +19,10 @@ TagManager:
   - Carrot/Whole
   - Carrot/Half
   - Carrot/Quarter
+  - Carrot Half
+  - Cutting
+  - FullBowl
+  - Food
   layers:
   - Default
   - TransparentFX

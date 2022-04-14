@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    public string Name;
+    public string title;
     public float quality = 100;
 
     public void onWindow(int time){
