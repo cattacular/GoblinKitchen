@@ -17,11 +17,13 @@ public class ContinuousMovement : MonoBehaviour
     private float fallingSpeed;
     private Vector2 inputAxis;
     private CharacterController character;
+    private Climber climber;
     // Start is called before the first frame update
     void Start()
     {
         character = GetComponent<CharacterController>();
         rig = GetComponent<XROrigin>();
+        climber = GetComponent<Climber>();
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class ContinuousMovement : MonoBehaviour
         character.Move(direction * Time.fixedDeltaTime * speed);
 
         //gravity
-        if(CheckIfGrounded())
+        if(CheckIfGrounded() || climber.flinging)
         {
             fallingSpeed = 0;
         }

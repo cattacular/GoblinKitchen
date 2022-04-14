@@ -10,6 +10,8 @@ public class Climber : MonoBehaviour
     private CharacterController character;
     public static XRController climbingHand;
     private ContinuousMovement continuousMovement;
+
+    public bool flinging;
     private bool Accelerator;
     private float tempVelocityx;
     private float tempVelocityy;
@@ -28,6 +30,7 @@ public class Climber : MonoBehaviour
         character = GetComponent<CharacterController>();
         continuousMovement = GetComponent<ContinuousMovement>();
         Accelerator = false;
+        flinging = false;
     }
 
     // Update is called once per frame
@@ -35,12 +38,14 @@ public class Climber : MonoBehaviour
     {
         if(climbingHand)
         {
+            flinging = true;
             continuousMovement.enabled = false;
             Climb();
             Accelerator = true;
         }
         else if (Accelerator)
         {
+            continuousMovement.enabled = true;
             if ((inversetempVelocityx > 0 && (tempVelocityx < 0)) || (inversetempVelocityx < 0 && (tempVelocityx > 0)) || (inversetempVelocityy > 0 && (tempVelocityy < inversetempVelocityy)) || (inversetempVelocityy < 0 && (tempVelocityy > inversetempVelocityy)) || (inversetempVelocityz > 0 && (tempVelocityz < 0)) || (inversetempVelocityz < 0 && (tempVelocityz > 0)) ){
                 Accelerate();
             }else{
@@ -48,6 +53,7 @@ public class Climber : MonoBehaviour
             }
         } else {
             continuousMovement.enabled = true;
+            flinging = false;
         }
     }
 
@@ -76,7 +82,7 @@ public class Climber : MonoBehaviour
         if (tempVelocityz * inversetempVelocityz >= 0){
             tempVelocityz = 0;
         }
-        character.Move(transform.rotation * new Vector3(tempVelocityx, tempVelocityy*1.5f, tempVelocityz) * .02f);
+        character.Move(transform.rotation * new Vector3(tempVelocityx, tempVelocityy*1.5f, tempVelocityz) * .025f);
         tempVelocityx = (inversetempVelocityx < 0) ?  tempVelocityx - accelerationFactor : tempVelocityx + accelerationFactor;
         tempVelocityy = (inversetempVelocityy < 0) ? tempVelocityy - accelerationFactor : tempVelocityy + accelerationFactor;
         tempVelocityz = (inversetempVelocityz < 0) ? tempVelocityz - accelerationFactor : tempVelocityz + accelerationFactor;
