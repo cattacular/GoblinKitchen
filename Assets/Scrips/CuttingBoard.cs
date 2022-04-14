@@ -10,8 +10,16 @@ public class CuttingBoard : MonoBehaviour
     public string  tempTag = "Untagged";
     void OnTriggerEnter(Collider other)
     {
-        tempTag = other.gameObject.tag;
-        other.gameObject.tag = "Cutting";
+        if(other.gameObject.GetComponentInParent<Cuttable>())
+        {
+            tempTag = other.gameObject.tag;
+            other.gameObject.tag = "Cutting";
+        }
+        else if(other.gameObject.GetComponentInChildren<Smashable>())
+        {
+            tempTag = other.gameObject.tag;
+            other.gameObject.tag = "Smashing";
+        }
     }
 
     void OnTriggerExit(Collider other)

@@ -23,6 +23,7 @@ TagManager:
   - Cutting
   - FullBowl
   - Food
+  - Smashing
   layers:
   - Default
   - TransparentFX
