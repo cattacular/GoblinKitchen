@@ -82,7 +82,7 @@ public class Climber : MonoBehaviour
         if (tempVelocityz * inversetempVelocityz >= 0){
             tempVelocityz = 0;
         }
-        character.Move(transform.rotation * new Vector3(tempVelocityx, tempVelocityy*1.5f, tempVelocityz) * .025f);
+        character.Move(transform.rotation * new Vector3(tempVelocityx, tempVelocityy*1.25f, tempVelocityz) * .025f);
         tempVelocityx = (inversetempVelocityx < 0) ?  tempVelocityx - accelerationFactor : tempVelocityx + accelerationFactor;
         tempVelocityy = (inversetempVelocityy < 0) ? tempVelocityy - accelerationFactor : tempVelocityy + accelerationFactor;
         tempVelocityz = (inversetempVelocityz < 0) ? tempVelocityz - accelerationFactor : tempVelocityz + accelerationFactor;
