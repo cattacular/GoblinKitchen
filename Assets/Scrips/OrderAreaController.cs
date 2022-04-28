@@ -28,7 +28,7 @@ public class OrderAreaController : MonoBehaviour
     {
         orderTimer += Time.fixedDeltaTime;
 
-        Debug.Log(orderIntervals);
+        Debug.Log(orderTimer);
         if(orderTimer > orderIntervals)
         {
             Debug.Log("Entered if");

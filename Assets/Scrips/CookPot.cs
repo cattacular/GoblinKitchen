@@ -15,6 +15,7 @@ public class CookPot : MonoBehaviour
     public GameObject[] foodLevels;
     public GameObject water;
     private int cookCount = 0;
+    private GameObject oldModel;
     private float timer = 0f;
     // Start is called before the first frame update
     void Start()
@@ -29,13 +30,21 @@ public class CookPot : MonoBehaviour
     {
         if (cookCount < cookingLevelName.Length)
         {
-            potContents = cookingLevelMods[cookCount];
+            if(potContents.GetComponent<MeshRenderer>().enabled != false){
+                potContents.GetComponent<MeshRenderer>().enabled = false;
+            }
+            else{
+                Destroy(oldModel);
+            }
+            oldModel = Instantiate(cookingLevelMods[cookCount], potContents.transform.position, potContents.transform.rotation);
+            oldModel.transform.localScale = potContents.transform.localScale;
             Debug.Log(cookingLevelName[cookCount]);
             cookCount += 1;
 
             if(cookCount == 4)
             {
                 isFinished = true;
+                GetComponent<PotChecker>().foodInPot = oldModel;
                 GetComponent<PotChecker>().enabled = true;
                 //GetComponent<CookFood>().enabled = false;
                 //GetComponent<recipe>().enabled = false;

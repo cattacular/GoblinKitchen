@@ -13,6 +13,7 @@ public class PotChecker : MonoBehaviour
     private int ingredientCount = 0;
     public GameObject RecipeBook;
     public ParticleSystem goodIngredientEffect;
+    public GameObject foodInPot;
     private CookPot cookPot;
     private int foodAmount = 2;
     
@@ -46,16 +47,17 @@ public class PotChecker : MonoBehaviour
             other.gameObject.tag = "Food";
             other.gameObject.AddComponent<Food>().title = cookPot.recipeName;
             GameObject foodPos = other.gameObject.transform.Find("foodPosition").gameObject;
-            foodPos.GetComponent<Renderer>().material = cookPot.potContents.GetComponent<Renderer>().material;
-            foodPos.SetActive(true);
+            GameObject foodInBowl = Instantiate(foodInPot, foodPos.transform.position, foodPos.transform.rotation);
+            foodInBowl.transform.parent = other.gameObject.transform;
+            foodInBowl.transform.localScale = foodPos.transform.localScale; 
             foodAmount--;
             if(foodAmount > 0){
-                cookPot.potContents.GetComponent<Transform>().position = cookPot.foodLevels[foodAmount-1].transform.position;
+                foodInPot.transform.position = cookPot.foodLevels[foodAmount-1].transform.position;
             }
             else{
                 foodAmount = 3;
-                cookPot.potContents = cookPot.water;
-                cookPot.potContents.GetComponent<Transform>().position = cookPot.foodLevels[foodAmount-1].transform.position;
+                cookPot.potContents.GetComponent<MeshRenderer>().enabled = true;
+                Destroy(foodInPot);
             }
 
         }
