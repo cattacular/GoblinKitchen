@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class CookPan : MonoBehaviour
 {
-
-    public GameObject potContents;
 
     public Transform panLocation;
     public string recipeName;
@@ -39,6 +38,7 @@ public class CookPan : MonoBehaviour
             {
                 isFinished = true;
                 GetComponent<PanChecker>().enabled = true;
+                GetComponent<XRGrabInteractable>().enabled = true;
                 //GetComponent<CookFood>().enabled = false;
                 //GetComponent<recipe>().enabled = false;
             }

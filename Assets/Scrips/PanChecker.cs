@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PanChecker : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PanChecker : MonoBehaviour
     public GameObject cheese;
     public GameObject grilledCheese;
     public GameObject egg;
+    public ParticleSystem goodIngredientEffect;
     public GameObject steak;
     public Transform foodPos;
     //[HideInInspector]
@@ -17,12 +19,14 @@ public class PanChecker : MonoBehaviour
     public bool readyToCook = false;
 
     void Start(){
-
-        for(int i = 0; i < panRecipe.ingredients.Length; i++){
-            inPan.Add(panRecipe.ingredients[i]);
+        if(panRecipe != null){
+            for(int i = 0; i < panRecipe.ingredients.Length; i++){
+                inPan.Add(panRecipe.ingredients[i]);
+            }
         }
-
-        SetFoodPos();
+        if(panRecipe != null){
+            SetFoodPos();
+        }
 
     }
     void OnTriggerEnter(Collider other) {
@@ -45,6 +49,7 @@ public class PanChecker : MonoBehaviour
             other.gameObject.GetComponent<CookPan>().enabled = true;
             readyToCook = false;
             this.gameObject.transform.parent.position = other.gameObject.GetComponent<CookPan>().panLocation.position;
+            GetComponent<XRGrabInteractable>().enabled = false;
 
         }
     }
@@ -65,18 +70,22 @@ public class PanChecker : MonoBehaviour
         Destroy(ingredient);
         if(ingredientName == "Cheese"){
             cheese.SetActive(true);
+            StartCoroutine("GoodEffect");
         }
         else if(ingredientName == "Bread Slice"){
             if(breadCount < 2){
                 bread[breadCount].SetActive(true);
+                StartCoroutine("GoodEffect");
             }
             breadCount++;
         }
         else if(ingredientName == "Egg"){
             egg.SetActive(true);
+            StartCoroutine("GoodEffect");
         }
         else if(ingredientName == "Steak"){
             steak.SetActive(true);
+            StartCoroutine("GoodEffect");
         }
 
         if(IsGrilledCheeseReady()){
@@ -118,7 +127,8 @@ public class PanChecker : MonoBehaviour
         }
     }
 
-    private bool IsGrilledCheeseReady(){
+    private bool IsGrilledCheeseReady()
+    {
         if(breadCount >= 2 && cheese.activeSelf){
             bread[0].SetActive(false);
             bread[1].SetActive(false);
@@ -129,7 +139,9 @@ public class PanChecker : MonoBehaviour
         return false;
     }
 
-    private void SetFoodPos(){
+    private void SetFoodPos()
+    {
+        
         if(panRecipe.name == "Grilled Cheese"){
             foodPos = grilledCheese.transform;
         }
@@ -139,6 +151,13 @@ public class PanChecker : MonoBehaviour
         else{
             foodPos = egg.transform;
         }
+    }
+
+    private IEnumerator GoodEffect()
+    {
+        goodIngredientEffect.Play();
+        yield return new WaitForSeconds(1);
+        goodIngredientEffect.Stop();
     }
 
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2367036647894182201}
   - component: {fileID: 3462528286231946468}
   - component: {fileID: 7354414656531907952}
+  - component: {fileID: -8953081555906562196}
   m_Layer: 9
   m_Name: Steak
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5108465925650076357}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.677681, y: 0.128, z: 4.176734}
-  m_LocalScale: {x: 3.5333867, y: 3.5333867, z: 3.5333867}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 13.389357, y: 13.389357, z: 13.389357}
   m_Children:
   - {fileID: 8101266174632629253}
   m_Father: {fileID: 0}
@@ -243,6 +244,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3155473243182198709, guid: 9f5e94c7fcea868459a83ede55a71095, type: 3}
+--- !u!114 &-8953081555906562196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108465925650076357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed388fda1349674c89875b57dee4b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Steak
+  amount: 1
 --- !u!1 &6916877816303091882
 GameObject:
   m_ObjectHideFlags: 0

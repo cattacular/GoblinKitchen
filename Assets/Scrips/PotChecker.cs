@@ -12,6 +12,7 @@ public class PotChecker : MonoBehaviour
     private Recipe correctRecipe;
     private int ingredientCount = 0;
     public GameObject RecipeBook;
+    public ParticleSystem goodIngredientEffect;
     private CookPot cookPot;
     private int foodAmount = 2;
     
