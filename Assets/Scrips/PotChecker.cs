@@ -12,13 +12,13 @@ public class PotChecker : MonoBehaviour
     private Recipe correctRecipe;
     private int ingredientCount = 0;
     public GameObject RecipeBook;
-    private CookFood cookFood;
+    private CookPot cookPot;
     private int foodAmount = 2;
     
     // Start is called before the first frame update
     void Start()
     {
-        cookFood = this.GetComponent<CookFood>();
+        cookPot = this.GetComponent<CookPot>();
     }
 
     // Update is called once per frame
@@ -40,21 +40,21 @@ public class PotChecker : MonoBehaviour
                 Cook(correctRecipe);
             }
         }
-        else if(other.gameObject.CompareTag("Bowl") && cookFood.isFinished == true)
+        else if(other.gameObject.CompareTag("Bowl") && cookPot.isFinished == true)
         {
             other.gameObject.tag = "Food";
-            other.gameObject.AddComponent<Food>().title = cookFood.recipeName;
+            other.gameObject.AddComponent<Food>().title = cookPot.recipeName;
             GameObject foodPos = other.gameObject.transform.Find("foodPosition").gameObject;
-            foodPos.GetComponent<Renderer>().material = cookFood.potContents.GetComponent<Renderer>().material;
+            foodPos.GetComponent<Renderer>().material = cookPot.potContents.GetComponent<Renderer>().material;
             foodPos.SetActive(true);
             foodAmount--;
             if(foodAmount > 0){
-                cookFood.potContents.GetComponent<Transform>().position = cookFood.foodLevels[foodAmount-1].transform.position;
+                cookPot.potContents.GetComponent<Transform>().position = cookPot.foodLevels[foodAmount-1].transform.position;
             }
             else{
                 foodAmount = 3;
-                cookFood.potContents.GetComponent<Renderer>().material = cookFood.water;
-                cookFood.potContents.GetComponent<Transform>().position = cookFood.foodLevels[foodAmount-1].transform.position;
+                cookPot.potContents = cookPot.water;
+                cookPot.potContents.GetComponent<Transform>().position = cookPot.foodLevels[foodAmount-1].transform.position;
             }
 
         }
@@ -112,10 +112,10 @@ public class PotChecker : MonoBehaviour
     }
 
     private void Cook(Recipe recipe){
-        cookFood.recipeName = recipe.name;
-        cookFood.cookingLevelMats = recipe.cookingLevelMats;
-        cookFood.cookingInterval = recipe.cookIntervalTime;
-        cookFood.enabled = true;
+        cookPot.recipeName = recipe.name;
+        cookPot.cookingLevelMods = recipe.cookingLevelMods;
+        cookPot.cookingInterval = recipe.cookIntervalTime;
+        cookPot.enabled = true;
         deleteUsed();
         GetComponent<PotChecker>().enabled = false;
     }

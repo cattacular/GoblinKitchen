@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2302996444371608544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 824257695670818498}
+  - component: {fileID: 6804259747740321448}
+  m_Layer: 0
+  m_Name: Steak
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &824257695670818498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302996444371608544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6804259747740321448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302996444371608544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a927f312bd3b13347aecff70215a130c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredients:
+  - {fileID: 1246264395361854434, guid: 3ee5cd3c5e49ee54f8b5200e1c667005, type: 3}
+  cookIntervalTime: 24
+  cookingLevelMods:
+  - {fileID: 5108465925650076357, guid: 842108d2e34e1f14f8b9905b7360924b, type: 3}
+  - {fileID: 5108465925650076357, guid: 8176b388af176d04a98a9c82e8760e5c, type: 3}
+  - {fileID: 5108465925650076357, guid: 112871603a2c6c84599a3a31512379d4, type: 3}
+  - {fileID: 5108465925650076357, guid: 276d83ec55a6ac84c87b738fff21ef0e, type: 3}
+  - {fileID: 5108465925650076357, guid: fd0f8b7328e992c4f8dedaf5f82ede50, type: 3}

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookFood : MonoBehaviour
+public class CookPan : MonoBehaviour
 {
 
     public GameObject potContents;
 
+    public Transform panLocation;
     public string recipeName;
     public float cookingInterval = 5f;
     public string[] cookingLevelName = {"super early","early","on time","late","too late!"};
     public bool isFinished;
-    public Material[] cookingLevelMats;
-    public GameObject[] foodLevels;
-    public Material water;
+    public GameObject[] cookingLevelMods;
+    public Transform foodSpot;
     private int cookCount = 0;
     private float timer = 0f;
     // Start is called before the first frame update
@@ -29,14 +29,16 @@ public class CookFood : MonoBehaviour
     {
         if (cookCount < cookingLevelName.Length)
         {
-            potContents.GetComponent<MeshRenderer>().material = cookingLevelMats[cookCount];
+            GetComponent<PanChecker>().DisableIngredients();
+            GetComponent<PanChecker>().enabled = false;
+            Instantiate(cookingLevelMods[cookCount], foodSpot.position, foodSpot.rotation);
             Debug.Log(cookingLevelName[cookCount]);
             cookCount += 1;
 
             if(cookCount == 4)
             {
                 isFinished = true;
-                GetComponent<PotChecker>().enabled = true;
+                GetComponent<PanChecker>().enabled = true;
                 //GetComponent<CookFood>().enabled = false;
                 //GetComponent<recipe>().enabled = false;
             }
@@ -44,7 +46,7 @@ public class CookFood : MonoBehaviour
         else
         {
             CancelInvoke();
-            GetComponent<CookFood>().enabled = false;
+            GetComponent<CookPan>().enabled = false;
         }
 
     }

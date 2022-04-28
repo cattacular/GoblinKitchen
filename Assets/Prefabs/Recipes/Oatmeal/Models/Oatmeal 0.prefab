@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5182184342806558871}
   - component: {fileID: 5182184342806558872}
   m_Layer: 7
-  m_Name: Stew
+  m_Name: Oatmeal 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3da9b100858ee774bb0f7706e4ad3945, type: 2}
+  - {fileID: 2100000, guid: 9583d2ab39e276d4598b42cdcccbf01a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

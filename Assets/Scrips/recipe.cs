@@ -9,12 +9,12 @@ public class Recipe : MonoBehaviour
 
     public float cookIntervalTime;
 
-    public Material[] cookingLevelMats;
+    public GameObject[] cookingLevelMods;
 
-    public Recipe(Ingredient[] ingredientsNeeded, float cookTime, Material[] cookingLevelMaterials)
+    public Recipe(Ingredient[] ingredientsNeeded, float cookTime, GameObject[] cookingLevelModels)
     {
         ingredients = ingredientsNeeded;
         cookIntervalTime = cookTime;
-        cookingLevelMats = cookingLevelMaterials;
+        cookingLevelMods = cookingLevelModels;
     }
 }
