@@ -45,6 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients:
   - {fileID: 1246264395361854434, guid: e3db824b18b47794488114bda2568f7e, type: 3}
+  - {fileID: 1246264395361854434, guid: c10dcadd70dedf548929ae4c4580b6dc, type: 3}
+  - {fileID: 1246264395361854434, guid: 6728d187f6568fb4c90c103e10b18689, type: 3}
+  - {fileID: 1246264395361854434, guid: ef466680306796f418ee8e2a86d4e5e9, type: 3}
   cookIntervalTime: 10
   cookingLevelMods:
   - {fileID: 5182184342806558874, guid: dca07448ae6ef9846b0bdaf02df2d69e, type: 3}
