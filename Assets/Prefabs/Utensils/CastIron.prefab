@@ -422,6 +422,7 @@ MonoBehaviour:
   isFinished: 0
   cookingLevelMods: []
   foodSpot: {fileID: 0}
+  cookedSpot: {fileID: 0}
 --- !u!1 &6465703918213177692
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,15 +717,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f5e94c7fcea868459a83ede55a71095, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2707975
+      value: 0.35699233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f5e94c7fcea868459a83ede55a71095, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2707975
+      value: 0.35699233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f5e94c7fcea868459a83ede55a71095, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2707975
+      value: 0.35699233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f5e94c7fcea868459a83ede55a71095, type: 3}
       propertyPath: m_LocalPosition.x
@@ -732,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f5e94c7fcea868459a83ede55a71095, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0008
+      value: 0.00102
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f5e94c7fcea868459a83ede55a71095, type: 3}
       propertyPath: m_LocalPosition.z

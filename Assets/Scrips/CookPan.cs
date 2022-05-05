@@ -13,8 +13,10 @@ public class CookPan : MonoBehaviour
     public bool isFinished;
     public GameObject[] cookingLevelMods;
     public Transform foodSpot;
+    public Transform cookedSpot;
     private int cookCount = 0;
     private float timer = 0f;
+    private GameObject oldModel;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +30,16 @@ public class CookPan : MonoBehaviour
     {
         if (cookCount < cookingLevelName.Length)
         {
-            GetComponent<PanChecker>().DisableIngredients();
             GetComponent<PanChecker>().enabled = false;
-            Instantiate(cookingLevelMods[cookCount], foodSpot.position, foodSpot.rotation);
+            if(foodSpot.gameObject.activeSelf != false){
+                foodSpot.gameObject.SetActive(false);
+            }
+            else{
+                Destroy(oldModel);
+            }
+            oldModel = Instantiate(cookingLevelMods[cookCount], foodSpot.position, foodSpot.rotation);
+            oldModel.transform.parent = transform.parent;
+            oldModel.transform.localScale = foodSpot.localScale;
             Debug.Log(cookingLevelName[cookCount]);
             cookCount += 1;
 
@@ -38,7 +47,8 @@ public class CookPan : MonoBehaviour
             {
                 isFinished = true;
                 GetComponent<PanChecker>().enabled = true;
-                GetComponent<XRGrabInteractable>().enabled = true;
+                this.gameObject.transform.parent.position = cookedSpot.position;
+                GetComponentInParent<XRGrabInteractable>().enabled = true;
                 //GetComponent<CookFood>().enabled = false;
                 //GetComponent<recipe>().enabled = false;
             }

@@ -42,14 +42,16 @@ public class PanChecker : MonoBehaviour
             }
         }
         else if(other.gameObject.CompareTag("Oven") && readyToCook == true){
-            other.gameObject.GetComponent<CookPan>().foodSpot = foodPos;
-            other.gameObject.GetComponent<CookPan>().recipeName = panRecipe.name;
-            other.gameObject.GetComponent<CookPan>().cookingInterval = panRecipe.cookIntervalTime;
-            other.gameObject.GetComponent<CookPan>().cookingLevelMods = panRecipe.cookingLevelMods;
-            other.gameObject.GetComponent<CookPan>().enabled = true;
+            GetComponent<CookPan>().foodSpot = foodPos;
+            GetComponent<CookPan>().recipeName = panRecipe.name;
+            GetComponent<CookPan>().cookingInterval = panRecipe.cookIntervalTime;
+            GetComponent<CookPan>().cookingLevelMods = panRecipe.cookingLevelMods;
+            GetComponent<CookPan>().enabled = true;
             readyToCook = false;
-            this.gameObject.transform.parent.position = other.gameObject.GetComponent<CookPan>().panLocation.position;
-            GetComponent<XRGrabInteractable>().enabled = false;
+            this.gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
+            GetComponentInParent<XRGrabInteractable>().enabled = false;
+            this.gameObject.transform.parent.position = GetComponent<CookPan>().panLocation.position;
+            
 
         }
     }
@@ -108,24 +110,14 @@ public class PanChecker : MonoBehaviour
         }
         if(correctIngredients == panRecipe.ingredients.Length){
             if(panRecipe.name == "Grilled Cheese"){
-                DisableIngredients();
-
+                bread[0].SetActive(false);
+                bread[1].SetActive(false);
+                cheese.SetActive(false);
             }
             readyToCook = true;
         }
     }
 
-    public void DisableIngredients(){
-        Transform parent = foodPos.transform;
-        foreach(Transform child in parent){
-            if(child != parent){
-                child.gameObject.SetActive(false);
-            }
-        }
-        for(int i = 0; i < inPan.Count; i++){
-            inPan[i].amount = 0;
-        }
-    }
 
     private bool IsGrilledCheeseReady()
     {

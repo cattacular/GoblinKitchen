@@ -57,7 +57,7 @@ public class PotChecker : MonoBehaviour
             else{
                 foodAmount = 3;
                 cookPot.potContents.GetComponent<MeshRenderer>().enabled = true;
-                Destroy(foodInPot);
+                //Destroy(foodInPot);
             }
 
         }

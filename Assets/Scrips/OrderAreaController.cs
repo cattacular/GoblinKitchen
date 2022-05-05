@@ -27,11 +27,8 @@ public class OrderAreaController : MonoBehaviour
     void Update()
     {
         orderTimer += Time.fixedDeltaTime;
-
-        Debug.Log(orderTimer);
         if(orderTimer > orderIntervals)
         {
-            Debug.Log("Entered if");
             if(checkAvailableSpots())
             {
                 orderCount++;

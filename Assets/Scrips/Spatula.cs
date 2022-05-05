@@ -12,7 +12,7 @@ public class Spatula : MonoBehaviour
             foodAttached = true;
             attachedFood = other.gameObject;
         }
-        else if(other.gameObject.CompareTag("Plate") && foodAttached){
+        else if(other.gameObject.transform.parent.CompareTag("Plate") && foodAttached){
             attachedFood.layer = 0;
             attachedFood.transform.position = other.gameObject.GetComponent<Plate>().foodPos.position;
             attachedFood.transform.rotation = other.gameObject.GetComponent<Plate>().foodPos.rotation;

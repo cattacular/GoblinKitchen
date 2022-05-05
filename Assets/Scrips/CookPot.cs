@@ -37,7 +37,7 @@ public class CookPot : MonoBehaviour
                 Destroy(oldModel);
             }
             oldModel = Instantiate(cookingLevelMods[cookCount], potContents.transform.position, potContents.transform.rotation);
-            oldModel.transform.localScale = potContents.transform.localScale;
+            oldModel.transform.localScale = potContents.transform.lossyScale;
             Debug.Log(cookingLevelName[cookCount]);
             cookCount += 1;
 
