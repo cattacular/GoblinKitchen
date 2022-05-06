@@ -50,6 +50,7 @@ public class PanChecker : MonoBehaviour
             readyToCook = false;
             this.gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
             GetComponentInParent<XRGrabInteractable>().enabled = false;
+            this.gameObject.transform.parent.rotation = GetComponent<CookPan>().panLocation.rotation;
             this.gameObject.transform.parent.position = GetComponent<CookPan>().panLocation.position;
             
 

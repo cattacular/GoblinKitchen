@@ -14,12 +14,14 @@ public class CookPot : MonoBehaviour
     public GameObject[] cookingLevelMods;
     public GameObject[] foodLevels;
     public GameObject water;
-    private int cookCount = 0;
+    private int cookCount;
     private GameObject oldModel;
-    private float timer = 0f;
+    private float timer;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        cookCount = 0;
+        timer = 0f;
         if (cookCount < cookingLevelName.Length)
         {
             InvokeRepeating("timeUpdate", 0f, cookingInterval);
@@ -37,6 +39,7 @@ public class CookPot : MonoBehaviour
                 Destroy(oldModel);
             }
             oldModel = Instantiate(cookingLevelMods[cookCount], potContents.transform.position, potContents.transform.rotation);
+            GetComponent<PotChecker>().foodInPot = oldModel;
             oldModel.transform.localScale = potContents.transform.lossyScale;
             Debug.Log(cookingLevelName[cookCount]);
             cookCount += 1;

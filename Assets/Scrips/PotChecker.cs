@@ -15,7 +15,7 @@ public class PotChecker : MonoBehaviour
     public ParticleSystem goodIngredientEffect;
     public GameObject foodInPot;
     private CookPot cookPot;
-    private int foodAmount = 2;
+    private int foodAmount = 3;
     
     // Start is called before the first frame update
     void Start()
@@ -46,18 +46,21 @@ public class PotChecker : MonoBehaviour
         {
             other.gameObject.tag = "Food";
             other.gameObject.AddComponent<Food>().title = cookPot.recipeName;
-            GameObject foodPos = other.gameObject.transform.Find("foodPosition").gameObject;
+            Transform foodPos = other.gameObject.transform.Find("foodPosition");
             GameObject foodInBowl = Instantiate(foodInPot, foodPos.transform.position, foodPos.transform.rotation);
             foodInBowl.transform.parent = other.gameObject.transform;
-            foodInBowl.transform.localScale = foodPos.transform.localScale; 
+            foodInBowl.transform.localScale = foodPos.localScale; 
             foodAmount--;
             if(foodAmount > 0){
                 foodInPot.transform.position = cookPot.foodLevels[foodAmount-1].transform.position;
+                Debug.Log(foodAmount);
+                
             }
             else{
                 foodAmount = 3;
                 cookPot.potContents.GetComponent<MeshRenderer>().enabled = true;
-                //Destroy(foodInPot);
+                Destroy(foodInPot);
+                cookPot.isFinished = false;
             }
 
         }
