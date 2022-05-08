@@ -30,7 +30,15 @@ public class FoodWindow : MonoBehaviour
             other.tag = "Untagged";
             int emptySpot = spotTaken.IndexOf(false);
             if(emptySpot >= 0){
-               Debug.Log(spotTaken[3]);
+               spotTaken[emptySpot] = true;
+               SendToFoodSpot(other.gameObject, emptySpot);
+               //CalculateMoney()
+           }
+        }
+        else if(other.gameObject.GetComponentInChildren<Food>() && other.CompareTag("Plate")){
+            other.tag = "Untagged";
+            int emptySpot = spotTaken.IndexOf(false);
+            if(emptySpot >= 0){
                spotTaken[emptySpot] = true;
                SendToFoodSpot(other.gameObject, emptySpot);
                //CalculateMoney()
@@ -42,8 +50,10 @@ public class FoodWindow : MonoBehaviour
     void SendToFoodSpot(GameObject food, int foodSpot)
     {
         Destroy(food.GetComponent<XRGrabInteractable>());
+        food.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation; 
         food.transform.position = foodSpots[foodSpot].transform.position;
         food.transform.rotation = foodSpots[foodSpot].transform.rotation;
+        
         StartCoroutine(MakeKinematic(food));
         //if(checkForOrder())
         //{

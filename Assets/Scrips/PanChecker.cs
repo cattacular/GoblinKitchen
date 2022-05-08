@@ -48,10 +48,11 @@ public class PanChecker : MonoBehaviour
             GetComponent<CookPan>().cookingLevelMods = panRecipe.cookingLevelMods;
             GetComponent<CookPan>().enabled = true;
             readyToCook = false;
-            this.gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
+            this.gameObject.transform.parent.position = GetComponent<CookPan>().panLocation.position;
+            GetComponentInParent<Rigidbody>().isKinematic = true;
             GetComponentInParent<XRGrabInteractable>().enabled = false;
             this.gameObject.transform.parent.rotation = GetComponent<CookPan>().panLocation.rotation;
-            this.gameObject.transform.parent.position = GetComponent<CookPan>().panLocation.position;
+            
             
 
         }
@@ -135,7 +136,7 @@ public class PanChecker : MonoBehaviour
     private void SetFoodPos()
     {
         
-        if(panRecipe.name == "Grilled Cheese"){
+        if(panRecipe.name == "GrilledCheese"){
             foodPos = grilledCheese.transform;
         }
         else if(panRecipe.name == "Steak"){

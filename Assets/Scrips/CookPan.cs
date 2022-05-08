@@ -18,8 +18,10 @@ public class CookPan : MonoBehaviour
     private float timer = 0f;
     private GameObject oldModel;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        cookCount = 0;
+        timer = 0f;
         if (cookCount < cookingLevelName.Length)
         {
             InvokeRepeating("timeUpdate", 0f, cookingInterval);
@@ -45,16 +47,17 @@ public class CookPan : MonoBehaviour
 
             if(cookCount == 4)
             {
-                isFinished = true;
-                GetComponent<PanChecker>().enabled = true;
-                this.gameObject.transform.parent.position = cookedSpot.position;
-                GetComponentInParent<XRGrabInteractable>().enabled = true;
                 //GetComponent<CookFood>().enabled = false;
                 //GetComponent<recipe>().enabled = false;
             }
         }
         else
         {
+            isFinished = true;
+            GetComponent<PanChecker>().enabled = true;
+            this.gameObject.transform.parent.position = cookedSpot.position;
+            this.gameObject.transform.parent.rotation = cookedSpot.rotation;
+            GetComponentInParent<XRGrabInteractable>().enabled = true;
             CancelInvoke();
             GetComponent<CookPan>().enabled = false;
         }
