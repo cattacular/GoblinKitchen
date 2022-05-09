@@ -140,5 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed388fda1349674c89875b57dee4b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Oat
-  amount: 0.005
+  title: Oats
+  amount: 0.01

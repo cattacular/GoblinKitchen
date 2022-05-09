@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 4fdf61a37b12bf74a8c0025190646e8a
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 2e6b53120d847fc42897661cd1717d53
+  - enabled: 1
+    path: Assets/Scenes/Morning.unity
+    guid: 7f6b0bd51e0085645af3b6d3894a14b4
+  - enabled: 1
+    path: Assets/Scenes/Noon.unity
+    guid: 2c3e09f5372195a4486046d5a3f7117a
+  - enabled: 1
+    path: Assets/Scenes/Evening.unity
+    guid: 895ac32db28f22c489b6786d229e154d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d8dcb9c29377ec7478f678fa3ec37932, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: a6fff6494fa532e4794de6b4fe043d16, type: 2}

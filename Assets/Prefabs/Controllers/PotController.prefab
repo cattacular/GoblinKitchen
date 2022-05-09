@@ -30,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.739, z: -0}
   m_LocalScale: {x: 2.709928, y: 0.060147397, z: 2.709928}
-  m_Children: []
+  m_Children:
+  - {fileID: 4943948004559014688}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,3 +111,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RecipeBook: {fileID: 0}
+  goodIngredientEffect: {fileID: 0}
+  foodInPot: {fileID: 0}
+--- !u!1001 &1750982902880487930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7117162571750775499}
+    m_Modifications:
+    - target: {fileID: 802651873250181636, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_Name
+      value: Good Ingredient effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+--- !u!4 &4943948004559014688 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6688077616911778522, guid: cd41b638a09ae324b91840a5d1b27aee, type: 3}
+  m_PrefabInstance: {fileID: 1750982902880487930}
+  m_PrefabAsset: {fileID: 0}

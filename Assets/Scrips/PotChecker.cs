@@ -82,6 +82,9 @@ public class PotChecker : MonoBehaviour
             for(int i = 0; i < ingredientCount; i++){
                 if(recipe[i].title == ingredient.title){
                     recipe[i].amount = recipe[i].amount + ingredient.amount;
+                    if(ingredient.amount > 0.25){
+                        StartCoroutine("GoodEffect");
+                    }
                     hasIngredient = true;
 
                     break;
@@ -141,6 +144,13 @@ public class PotChecker : MonoBehaviour
         {
             Destroy(usedObject);
         }
+    }
+
+    private IEnumerator GoodEffect()
+    {
+        goodIngredientEffect.Play();
+        yield return new WaitForSeconds(1);
+        goodIngredientEffect.Stop();
     }
 
     

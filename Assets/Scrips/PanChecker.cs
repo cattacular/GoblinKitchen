@@ -17,6 +17,7 @@ public class PanChecker : MonoBehaviour
     //[HideInInspector]
     public List<Ingredient> inPan = new List<Ingredient>();
     public bool readyToCook = false;
+    public bool grilledCheeseInPan = false;
 
     void Start(){
         if(panRecipe != null){
@@ -52,6 +53,7 @@ public class PanChecker : MonoBehaviour
             GetComponentInParent<Rigidbody>().isKinematic = true;
             GetComponentInParent<XRGrabInteractable>().enabled = false;
             this.gameObject.transform.parent.rotation = GetComponent<CookPan>().panLocation.rotation;
+            grilledCheeseInPan = false;
             
             
 
@@ -60,7 +62,6 @@ public class PanChecker : MonoBehaviour
 
     private bool OnRecipe(string ingredientName){
         for(int i = 0; i < panRecipe.ingredients.Length; i++){
-            Debug.Log(ingredientName + " == " + panRecipe.ingredients[i].name);
             if(ingredientName == panRecipe.ingredients[i].name){
                 return true;
             }
@@ -72,27 +73,28 @@ public class PanChecker : MonoBehaviour
     {
         string ingredientName = ingredient.GetComponent<Ingredient>().title;
         Destroy(ingredient);
-        if(ingredientName == "Cheese"){
+        if(ingredientName == "Cheese" && panRecipe.name == "Grilled Cheese" && !grilledCheeseInPan){
             cheese.SetActive(true);
             StartCoroutine("GoodEffect");
         }
-        else if(ingredientName == "Bread Slice"){
+        else if(ingredientName == "Bread Slice" && panRecipe.name == "Grilled Cheese" && !grilledCheeseInPan){
             if(breadCount < 2){
                 bread[breadCount].SetActive(true);
                 StartCoroutine("GoodEffect");
             }
             breadCount++;
         }
-        else if(ingredientName == "Egg"){
+        else if(ingredientName == "Egg" && panRecipe.name == "Fried Egg"){
             egg.SetActive(true);
             StartCoroutine("GoodEffect");
         }
-        else if(ingredientName == "Steak"){
+        else if(ingredientName == "Steak" && panRecipe.name == "Steak"){
             steak.SetActive(true);
             StartCoroutine("GoodEffect");
         }
 
         if(IsGrilledCheeseReady()){
+            grilledCheeseInPan = true;
             grilledCheese.SetActive(true);
         }
         for(int i = 0; i < inPan.Count; i++){

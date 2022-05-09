@@ -11,6 +11,7 @@ public class OrderAreaController : MonoBehaviour
     public List<bool> openSpot = new List<bool>();
     private int orderSpot;
     public int orderCount = 0;
+    public int numOfOrders = 5;
 
     private float orderTimer = 0; 
 
@@ -32,8 +33,13 @@ public class OrderAreaController : MonoBehaviour
             if(checkAvailableSpots())
             {
                 orderCount++;
-                Instantiate(orderNote, orderNoteSpots[orderSpot].position, orderNoteSpots[orderSpot].rotation);
+                GameObject order = Instantiate(orderNote, orderNoteSpots[orderSpot].position, orderNoteSpots[orderSpot].rotation);
+                order.GetComponent<OrderNote>().orderNumber = orderCount;
                 orderTimer = 0;
+            }
+
+            if(orderCount >= numOfOrders){
+                GetComponent<OrderAreaController>().enabled = false;
             }
         }
     }
@@ -46,14 +52,9 @@ public class OrderAreaController : MonoBehaviour
         {
             orderSpot = tempSpot;
             openSpot[tempSpot] = false;
-            //MoveNotesForward()
             return true;
         }
         return false;
     }
 
-    private void MoveNotesForward()
-    {
-
-    }
 }

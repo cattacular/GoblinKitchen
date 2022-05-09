@@ -11,6 +11,9 @@ public class FoodWindow : MonoBehaviour
     public GameObject OrderArea;
 
     private List<bool> spotTaken = new List<bool>();
+    public int correctFood = 0;
+    public bool foodComplete = false;
+    public List<string> orders = new List<string>();
 
 
 
@@ -26,7 +29,7 @@ public class FoodWindow : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("hit");
-        if(other.gameObject.GetComponent<Food>() && other.CompareTag("Food")){
+        if(other.gameObject.GetComponent<Food>() && other.CompareTag("Food") && CheckForOrder(other.gameObject.GetComponentInChildren<Food>())){
             other.tag = "Untagged";
             int emptySpot = spotTaken.IndexOf(false);
             if(emptySpot >= 0){
@@ -35,13 +38,15 @@ public class FoodWindow : MonoBehaviour
                //CalculateMoney()
            }
         }
-        else if(other.gameObject.GetComponentInChildren<Food>() && other.CompareTag("Plate")){
+        else if(other.gameObject.GetComponentInChildren<Food>() && other.CompareTag("Plate") && CheckForOrder(other.gameObject.GetComponentInChildren<Food>())){
             other.tag = "Untagged";
             int emptySpot = spotTaken.IndexOf(false);
             if(emptySpot >= 0){
                spotTaken[emptySpot] = true;
                SendToFoodSpot(other.gameObject, emptySpot);
-               //CalculateMoney()
+               if(foodComplete){
+                   GetComponent<FoodWindow>().enabled = false;
+               }
            }
         }
 
@@ -55,12 +60,6 @@ public class FoodWindow : MonoBehaviour
         food.transform.rotation = foodSpots[foodSpot].transform.rotation;
         
         StartCoroutine(MakeKinematic(food));
-        //if(checkForOrder())
-        //{
-            //CalculateMoney()
-        //}
-        food.AddComponent<DestroyAfterTime>().selfDestructTime = timeBeforeFoodLeaves;
-        StartCoroutine(FreeUpSpace(foodSpot));
     }
 
     IEnumerator MakeKinematic(GameObject food)
@@ -69,14 +68,22 @@ public class FoodWindow : MonoBehaviour
         food.GetComponent<Rigidbody>().isKinematic = true;
     }
 
-    IEnumerator FreeUpSpace(int foodSpot)
+    private bool CheckForOrder(Food food)
     {
-        yield return new WaitForSeconds(timeBeforeFoodLeaves);
-        spotTaken[foodSpot] = false;
-    }
-
-    private bool checkForOrder()
-    {
+        Debug.Log(food.title);
+        if(orders.Contains(food.title)){
+            
+            correctFood++;
+            if(correctFood > FindObjectOfType<OrderAreaController>().numOfOrders - 1){
+                foodComplete = true;
+                return true;
+            }
+            else{
+                orders.Remove(food.title);
+                return true;
+            }
+        }
+        Debug.Log(false);
         return false;
     }
 }

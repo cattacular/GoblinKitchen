@@ -8,7 +8,8 @@ public class Smasher : MonoBehaviour
         if(other.gameObject.GetComponent<Smashable>() && other.gameObject.CompareTag("Smashing")){
             other.gameObject.GetComponent<Collider>().enabled = false;
             Smashable original = other.gameObject.GetComponent<Smashable>();
-            Instantiate(original.smashed, other.gameObject.transform.position, other.gameObject.transform.rotation);
+            GameObject temp = Instantiate(original.smashed, other.gameObject.transform.position, other.gameObject.transform.rotation);
+            temp.transform.Rotate(new Vector3(-90,0,0), Space.Self);
             Destroy(other.gameObject);
         }
     }

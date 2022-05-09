@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 824257695670818498}
   - component: {fileID: 6804259747740321448}
   m_Layer: 0
-  m_Name: FriedEggs
+  m_Name: Grilled Cheese
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,11 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 1246264395361854434, guid: 6ee428d337959e54c9d1dfec00f0e019, type: 3}
-  cookIntervalTime: 5
+  - {fileID: 1246264395361854434, guid: eadf14a6384eab34690fb80370889d16, type: 3}
+  - {fileID: 1246264395361854434, guid: 8534ceede40a83644b29e7b14f55beee, type: 3}
+  cookIntervalTime: 20
   cookingLevelMods:
-  - {fileID: 8453152618038299517, guid: b23fd8b44b1199b4ab027b364441e279, type: 3}
-  - {fileID: 8453152618038299517, guid: b23fd8b44b1199b4ab027b364441e279, type: 3}
-  - {fileID: 8453152618038299517, guid: b23fd8b44b1199b4ab027b364441e279, type: 3}
-  - {fileID: 8453152618038299517, guid: b23fd8b44b1199b4ab027b364441e279, type: 3}
-  - {fileID: 2527094285735704202, guid: d644d97a859529f4d8f7547540df7c9b, type: 3}
+  - {fileID: 2706289878178335391, guid: 48fe5ba728b8afa418e1eb781184d64a, type: 3}
+  - {fileID: 2706289878178335391, guid: 3fa18a9ad4a9ebb4ba800ee2c16da28c, type: 3}
+  - {fileID: 2706289878178335391, guid: d4c6b1079953fde44b6998dfd7bc1ae7, type: 3}
+  - {fileID: 2706289878178335391, guid: 2886b658f973035438ef95728ab89896, type: 3}
+  - {fileID: 2706289878178335391, guid: 9f4f0eddd4de74547908e080bd9837f6, type: 3}

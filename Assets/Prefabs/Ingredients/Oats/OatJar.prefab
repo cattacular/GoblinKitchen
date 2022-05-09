@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37755f8145773b4cba87c6880e3258f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalContents: 1024
+  totalContents: 8192
   shakerContentsPrefab: {fileID: 3458715732097392413, guid: 7d164c7136b09514fb95748c5ab83296, type: 3}
   shakerTiltThreshold: -0.6
   velocityHighThreshold: 5
