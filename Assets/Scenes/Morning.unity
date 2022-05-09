@@ -7429,7 +7429,7 @@ PrefabInstance:
     - target: {fileID: 7815082347608854606, guid: d194b94d9f8422c45a33845a72abb3c3, type: 3}
       propertyPath: panRecipe
       value: 
-      objectReference: {fileID: 6804259747740321448, guid: fe453b96da959584e95404fb95615387, type: 3}
+      objectReference: {fileID: 6804259747740321448, guid: ec063d92cddc30c419223775767736fb, type: 3}
     - target: {fileID: 7815082347608854606, guid: d194b94d9f8422c45a33845a72abb3c3, type: 3}
       propertyPath: inPan.Array.size
       value: 0
