@@ -50,7 +50,7 @@ public class ContinuousMovement : MonoBehaviour
         }
         else
         {
-            fallingSpeed = -2f;
+            fallingSpeed = -4.9f;
         }
         character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
     }
